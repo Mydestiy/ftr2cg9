@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài Kiểm Tra Tiếng Anh Tương Tác - Ms Lê Hằng English</title>
+  <!-- Google Fonts: Poster Style (Fredoka & Paytone One) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Paytone+One&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-pink: #ff6b8b;
+      --primary-pink-dark: #d84315;
+      --pastel-pink-bg: #fff0f5;
+      --pastel-purple-hl: #a855f7;
+      --accent-green: #00d26a;
+      --accent-red: #ff4757;
+      --accent-yellow: #fdcb6e;
+      --bg-gradient-1: #ffb6c1;
+      --bg-gradient-2: #ff80bf;
+      --bg-gradient-3: #a855f7;
+      --bg-gradient-4: #fda4af;
+      --card-bg: rgba(255, 255, 255, 0.97);
+      --card-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      --btn-shadow: 0 6px 0px rgba(0,0,0,0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background-color: var(--pastel-purple-hl) !important;
+      color: #ffffff !important;
+    }
+
+    body {
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(-45deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3), var(--bg-gradient-4));
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.25) 15%, transparent 15%), 
+                        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='30' font-size='22'%3E📣%3C/text%3E%3Ctext x='70' y='85' font-size='22'%3E🏙️%3C/text%3E%3Ctext x='80' y='30' font-size='20'%3E🌸%3C/text%3E%3Ctext x='15' y='95' font-size='20'%3E⭐%3C/text%3E%3Ctext x='45' y='60' font-size='18'%3E🏪%3C/text%3E%3C/svg%3E");
+      color: #2d3436;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      z-index: 100;
+      border-bottom: 4px solid #ffb6c1;
+    }
+
+    .brand-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff0f5;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 3px solid #ffb6c1;
+      box-shadow: var(--btn-shadow);
+    }
+
+    .brand-badge h1 {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1rem;
+      color: #ff3366;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .timer-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      padding: 6px 14px;
+      border-radius: 22px;
+      border: 3px solid var(--primary-pink);
+      box-shadow: var(--btn-shadow);
+    }
+
+    .timer-display {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1.2rem;
+      color: #ff3366;
+      min-width: 55px;
+      text-align: center;
+    }
+
+    .btn-gamified {
+      font-family: 'Paytone One', 'Fredoka', sans-serif;
+      background: var(--primary-pink);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: var(--btn-shadow);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-gamified:hover {
+      transform: translateY(-3px);
+      background: #ff4757;
+    }
+
+    .btn-gamified:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0px rgba(0,0,0,0.15);
+    }
+
+    .btn-submit-main {
+      background: var(--accent-green);
+    }
+
+    .progress-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 150px;
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #fff;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #fdcb6e, #00d26a);
+      transition: width 0.4s ease;
+    }
+
+    .progress-text {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    .passage-tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(255,255,255,0.9);
+      padding: 5px;
+      border-radius: 16px;
+    }
+
+    .tab-btn {
+      font-family: 'Fredoka', sans-serif;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      color: #64748b;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: #ff3366;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    }
+
+    .main-container {
+      flex: 1;
+      display: flex;
+      gap: 18px;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .split-pane {
+      flex: 1;
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 22px;
+      overflow-y: auto;
+      box-shadow: var(--card-shadow);
+      border: 4px solid rgba(255, 255, 255, 0.95);
+      position: relative;
+    }
+
+    .passage-title {
+      font-family: 'Paytone One', cursive, sans-serif;
+      font-size: 1.25rem;
+      color: #ff3366;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 4px dashed #ffb6c1;
+      letter-spacing: 0.5px;
+    }
+
+    .paragraph-block {
+      margin-bottom: 18px;
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      border-left: 5px solid var(--primary-pink);
+    }
+
+    .paragraph-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .translate-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #f0f3ff;
+      color: #4f46e5;
+      border: 2px solid #c7d2fe;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .translate-btn:hover {
+      background: #e0e7ff;
+    }
+
+    .translation-content {
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border-left: 4px solid #6366f1;
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    .translation-content.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .evidence-highlight {
+      background-color: #fef08a !important;
+      color: #000 !important;
+      box-shadow: 0 0 12px #fde047;
+      border-radius: 6px;
+      padding: 2px 6px;
+      animation: pulseGlow 1.2s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { transform: scale(1); }
+      to { transform: scale(1.03); }
+    }
+
+    .glossary-box {
+      margin-top: 25px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
+      border: 3px solid #f1f5f9;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .glossary-title {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1.05rem;
+      color: #ff3366;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .glossary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .glossary-table th, .glossary-table td {
+      padding: 10px;
+      border-bottom: 1px solid #edf2f7;
+      text-align: left;
+    }
+
+    .glossary-table th {
+      background: #fff0f5;
+      color: #ff3366;
+      font-family: 'Paytone One', sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+      border: 3px solid #f1f5f9;
+    }
+
+    .question-number {
+      display: inline-block;
+      font-family: 'Paytone One', sans-serif;
+      background: #fff0f5;
+      color: #ff3366;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      border: 2px solid #ffb6c1;
+    }
+
+    .question-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #f8fafc;
+      border: 3px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 0px #e2e8f0;
+    }
+
+    .option-btn:hover {
+      background: #f1f5f9;
+      transform: translateX(4px);
+    }
+
+    .option-btn.correct {
+      background: #dcfce7 !important;
+      border-color: var(--accent-green) !important;
+      color: #15803d !important;
+      font-weight: 700;
+      box-shadow: 0 3px 0px var(--accent-green);
+    }
+
+    .option-btn.wrong {
+      background: #ffe4e6 !important;
+      border-color: var(--accent-red) !important;
+      color: #b91c1c !important;
+      box-shadow: 0 3px 0px var(--accent-red);
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    .explanation-box {
+      display: none;
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 3px dashed #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .explanation-box.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .exp-item {
+      margin-bottom: 8px;
+    }
+
+    .exp-title {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 0.88rem;
+      color: #0f172a;
+    }
+
+    .locate-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #fef08a;
+      color: #854d0e;
+      border: 2px solid #fde047;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .locate-btn:hover {
+      background: #fde047;
+      transform: scale(1.03);
+    }
+
+    /* Rendered Notices for Signs */
+    .sign-card-box {
+      background: #ffffff;
+      border: 3px solid #000000;
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      width: 280px;
+      margin: 0 auto 16px auto;
+      font-family: Arial, sans-serif;
+    }
+
+    .sign-card-box .header-red {
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 900;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .sign-card-box .header-blue {
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 900;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .sign-card-box .body-text {
+      font-size: 1rem;
+      font-weight: 900;
+      color: #000000;
+      line-height: 1.4;
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px;
+      width: 90%;
+      max-width: 460px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      border: 5px solid var(--primary-pink);
+    }
+
+    .modal-score {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 2.8rem;
+      color: #ff3366;
+      margin: 12px 0;
+    }
+
+    .modal-comment {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 18px;
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @media (max-width: 850px) {
+      .main-container {
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      body { overflow: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <header>
+    <div class="brand-badge">
+      <span>👩‍🏫</span>
+      <h1>Ms Lê Hằng English</h1>
+    </div>
+
+    <!-- 3 Strictly Isolated Tabs -->
+    <div class="passage-tabs">
+      <button class="tab-btn active" onclick="switchPassage(1)">Biển báo & Thông báo (Q29-30) 📣</button>
+      <button class="tab-btn" onclick="switchPassage(2)">Urban Living & Challenges (Q31-36) 🏙️</button>
+      <button class="tab-btn" onclick="switchPassage(3)">Convenience Stores (Q37-40) 🏪</button>
+    </div>
+
+    <div class="timer-container">
+      <button class="btn-gamified" id="timer-toggle-btn" onclick="toggleTimer()">⏱️ BẮT ĐẦU TÍNH GIỜ</button>
+      <span class="timer-display" id="timer-display">20:00</span>
+    </div>
+
+    <div class="progress-box">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <span class="progress-text" id="progress-text">0%</span>
+    </div>
+
+    <button class="btn-gamified btn-submit-main" onclick="submitTest()">🏆 NỘP BÀI</button>
+  </header>
+
+  <main class="main-container">
+    <div class="split-pane" id="reading-pane"></div>
+    <div class="split-pane" id="exercise-pane"></div>
+  </main>
+
+  <div class="modal-overlay" id="result-modal">
+    <div class="modal-card">
+      <h2 style="font-family:'Paytone One', sans-serif; color:#ff3366;">🎉 KẾT QUẢ BÀI THI 🎉</h2>
+      <div class="modal-score" id="score-text">0 / 0</div>
+      <div class="modal-comment" id="comment-text">Cố lên nhé!</div>
+      <button class="btn-gamified" onclick="closeModal()">Đóng & Xem Lại</button>
+    </div>
+  </div>
+
+  <script>
+    // Strictly separated exercise data structure (1 key per tab, no cross contamination)
+    const passagesData = {
+      1: {
+        title: "Part 1: Read the following sign or notice and answer Questions 29 & 30",
+        paragraphs: [
+          {
+            id: "p1_q29_sign",
+            text: "<h4 style='font-family:Paytone One; color:#ff3366; margin-bottom:8px;'>Sign for Question 29</h4>" +
+                  "<div class='sign-card-box' id='ev_q29'><div class='header-red'>NO HORN</div><div class='body-text'>📢 🚫<br><strong>Do not use horn in this area</strong></div></div>",
+            translation: "Biển báo 1: BIỂN CẤM BÓP CÒI - Không sử dụng còi xe trong khu vực này."
+          },
+          {
+            id: "p1_q30_notice",
+            text: "<h4 style='font-family:Paytone One; color:#ff3366; margin-bottom:8px;'>Notice for Question 30</h4>" +
+                  "<div class='sign-card-box' id='ev_q30'><div class='header-blue'>EVENT NOTICE</div><div class='body-text'>OPEN FROM 8 P.M. - 10 P.M.<br><strong>EVERYONE AGED 15-17 WELCOME</strong></div></div>",
+            translation: "Thông báo 2: THÔNG BÁO SỰ KIỆN - Mở cửa từ 8h tối đến 10h tối. Chào đón tất cả các bạn ở độ tuổi 15-17."
+          }
+        ],
+        glossary: [
+          { word: "Horn (n)", type: "Noun", meaning: "Còi xe", synonym: "Klaxon / Siren" },
+          { word: "Mustn't (v)", type: "Modal V", meaning: "Không được phép (cấm)", synonym: "Are prohibited from / Not allowed to" },
+          { word: "Venue (n)", type: "Noun", meaning: "Địa điểm diễn ra sự kiện", synonym: "Location / Site / Place" },
+          { word: "Aged (adj)", type: "Adj", meaning: "Ở độ tuổi", synonym: "At the age of" }
+        ],
+        questions: [
+          {
+            id: "q29",
+            type: "mcq",
+            question: "Question 29. What does the sign say?",
+            options: [
+              "A. You mustn't use the horn in this area.",
+              "B. There aren't any horns in this area.",
+              "C. You should use the horn only in an emergency.",
+              "D. You don't have to use the horn in this area."
+            ],
+            answer: "A. You mustn't use the horn in this area.",
+            explanationType: "vocab_grammar",
+            explanation: {
+              translation: "Biển báo cấm còi có ý nghĩa gì?",
+              optionsAnalysis: [
+                "A. You mustn't use the horn in this area. (Bạn không được bấm còi trong khu vực này.)",
+                "B. There aren't any horns in this area. (Không có cái còi nào trong khu vực này.)",
+                "C. You should use the horn only in an emergency. (Bạn chỉ nên bấm còi khi khẩn cấp.)",
+                "D. You don't have to use the horn in this area. (Bạn không bắt buộc phải bấm còi ở đây.)"
+              ],
+              whyCorrect: "Biển báo vẽ hình chiếc còi bị gạch chéo đỏ là biển cấm bấm còi = 'You mustn't use the horn in this area'.",
+              whyWrong: "B sai nghĩa; C và D dùng từ không thể hiện đúng tính chất cấm đoán khắt khe (mustn't).",
+              evidenceId: "ev_q29"
+            }
+          },
+          {
+            id: "q30",
+            type: "mcq",
+            question: "Question 30. What does the notice say?",
+            options: [
+              "A. Only 15-17 people can enter the place from 8 p.m. to 10 p.m.",
+              "B. The venue is open to all teenagers under the age of 17.",
+              "C. Teenagers aged 15-17 can visit the venue from 8 p.m. to 10 p.m.",
+              "D. Only teenagers who are over 15 are allowed to enter this place."
+            ],
+            answer: "C. Teenagers aged 15-17 can visit the venue from 8 p.m. to 10 p.m.",
+            explanationType: "vocab_grammar",
+            explanation: {
+              translation: "Thông báo 'OPEN FROM 8 P.M. - 10 P.M. / EVERYONE AGED 15-17 WELCOME' có ý nghĩa gì?",
+              optionsAnalysis: [
+                "A. Only 15-17 people can enter... (Chỉ có 15-17 người được vào...) - Sai vì 15-17 ở đây là độ tuổi.",
+                "B. The venue is open to all teenagers under the age of 17. (Mở cho tất cả thanh thiếu niên dưới 17 tuổi...) - Sai vì người dưới 15 tuổi không được vào.",
+                "C. Teenagers aged 15-17 can visit the venue from 8 p.m. to 10 p.m. (Thanh thiếu niên từ 15-17 tuổi có thể ghé thăm từ 8h tối đến 10h tối.)",
+                "D. Only teenagers who are over 15... (Chỉ thanh thiếu niên trên 15 tuổi...) - Sai vì thiếu giới hạn mốc 17 tuổi."
+              ],
+              whyCorrect: "Nội dung ghi rõ giờ mở cửa 8-10 p.m. và đối tượng chào đón là 'Everyone aged 15-17' hoàn toàn trùng khớp với đáp án C.",
+              whyWrong: "A nhầm số người với độ tuổi; B và D hiểu sai khoảng tuổi 15-17.",
+              evidenceId: "ev_q30"
+            }
+          }
+        ]
+      },
+      2: {
+        title: "Part 2: Read the passage LIVING IN A BUSTLING CITY and answer Questions 31 to 36",
+        paragraphs: [
+          {
+            id: "p2_passage",
+            text: "<p class='paragraph-text'>" +
+                  "Living in a bustling city offers many advantages, but it also comes with its own set of challenges. One common issue is the <span id='ev_q31' class='evidence-target'>presence of leftover waste on the streets</span>, which can create an unsightly environment and attract pests. To combat this, city officials often <span id='ev_q32' class='evidence-target'>implement strict waste management policies</span> to encourage proper disposal of garbage. Another problem in cities is keeping clean in crowded areas. Because many people live close together, it's crucial for everyone to focus on hygiene to <span id='ev_q33' class='evidence-target'>keep everything clean and avoid sickness spreading</span>. Washing hands often and keeping homes tidy can help with this problem. Regular cleaning of public places, like parks and transportation, is also important. Additionally, <span id='ev_q34' class='evidence-target'>city dwellers may experience discomfort such as itchy eyes</span> and respiratory problems due to air pollution. Investing in air purifiers and wearing masks when going outdoors can provide some relief from these symptoms. Planting more trees and using public transportation instead of personal cars can also help reduce pollution.<br><br>" +
+                  "Despite these challenges, many people are drawn to city life for its opportunities and excitement. However, it's essential for residents to be mindful of the drawbacks and take steps to <span id='ev_q35' class='evidence-target'>mitigate</span> them for a healthier and happier urban experience." +
+                  "</p>",
+            translation: "Sống ở một thành phố nhộn nhịp mang lại nhiều lợi ích, nhưng nó cũng đi kèm với những thách thức riêng. Một vấn đề phổ biến là sự hiện diện của rác thải đọng lại trên đường phố, điều này có thể tạo ra một môi trường mất mỹ quan và thu hút côn trùng gây hại. Để giải quyết vấn đề này, các quan chức thành phố thường thực hiện các chính sách quản lý chất thải nghiêm ngặt để khuyến khích việc vứt rác đúng nơi quy định. Một vấn đề khác ở các thành phố là giữ vệ sinh ở những khu vực đông đúc. Vì nhiều người sống gần nhau nên điều quan trọng là mọi người phải chú ý đến vệ sinh để giữ cho mọi thứ sạch sẽ và tránh lây lan bệnh tật. Rửa tay thường xuyên và giữ nhà cửa gọn gàng có thể giúp giải quyết vấn đề này. Việc vệ sinh thường xuyên các nơi công cộng như công viên và phương tiện giao thông cũng rất quan trọng. Ngoài ra, cư dân thành phố có thể cảm thấy khó chịu như ngứa mắt và các vấn đề về đường hô hấp do ô nhiễm không khí. Đầu tư vào máy lọc không khí và đeo khẩu trang khi ra ngoài có thể giúp giảm bớt các triệu chứng này. Trồng nhiều cây xanh và sử dụng phương tiện giao thông công cộng thay vì xe cá nhân cũng có thể giúp giảm ô nhiễm.<br><br>Bất chấp những thách thức này, nhiều người vẫn bị thu hút bởi cuộc sống thành thị vì những cơ hội và sự hào hứng của nó. Tuy nhiên, điều quan trọng là cư dân phải chú ý đến những nhược điểm và thực hiện các bước để giảm nhẹ chúng nhằm có một trải nghiệm đô thị khỏe mạnh và hạnh phúc hơn."
+          }
+        ],
+        glossary: [
+          { word: "Bustling (adj)", type: "Adj", meaning: "Hối hả / Nhộn nhịp", synonym: "Hectic / Lively / Vibrant" },
+          { word: "Unsightly (adj)", type: "Adj", meaning: "Mất mỹ quan / Trông xấu xí", synonym: "Ugly / Unappealing" },
+          { word: "Pest (n)", type: "Noun", meaning: "Côn trùng / Loài gây hại", synonym: "Vermin / Parasite" },
+          { word: "Mitigate (v)", type: "Verb", meaning: "Giảm nhẹ / Làm dịu bớt", synonym: "Reduce / Alleviate / Ease / Lessen" },
+          { word: "Hygiene (n)", type: "Noun", meaning: "Vệ sinh cá nhân/môi trường", synonym: "Cleanliness / Sanitation" }
+        ],
+        questions: [
+          {
+            id: "q31",
+            type: "mcq",
+            question: "Question 31. What is one of the common issues faced by bustling cities?",
+            options: [
+              "A. Lack of entertainment options",
+              "B. Leftover waste on the streets",
+              "C. Too many green spaces",
+              "D. High levels of unemployment"
+            ],
+            answer: "B. Leftover waste on the streets",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. Leftover waste on the streets",
+              questionContext: "Một trong những vấn đề phổ biến mà các thành phố nhộn nhịp phải đối mặt là gì?",
+              passageQuote: "One common issue is the presence of leftover waste on the streets, which can create an unsightly environment...",
+              quoteTranslation: "Một vấn đề phổ biến là sự hiện diện của rác thải đọng lại trên đường phố...",
+              synonyms: "leftover waste on the streets",
+              evidenceId: "ev_q31"
+            }
+          },
+          {
+            id: "q32",
+            type: "mcq",
+            question: "Question 32. How do city officials address the issue of leftover waste?",
+            options: [
+              "A. By attracting more pests to the area.",
+              "B. By encouraging people to leave it on the streets.",
+              "C. By hiring more people to solve it.",
+              "D. By implementing waste management policies."
+            ],
+            answer: "D. By implementing waste management policies.",
+            explanationType: "reading",
+            explanation: {
+              answer: "D. By implementing waste management policies.",
+              questionContext: "Các quan chức thành phố giải quyết vấn đề rác thải đọng lại bằng cách nào?",
+              passageQuote: "To combat this, city officials often implement strict waste management policies to encourage proper disposal of garbage.",
+              quoteTranslation: "Để giải quyết điều này, các quan chức thành phố thường thực hiện các chính sách quản lý chất thải nghiêm ngặt...",
+              synonyms: "implement strict waste management policies",
+              evidenceId: "ev_q32"
+            }
+          },
+          {
+            id: "q33",
+            type: "mcq",
+            question: "Question 33. Why is maintaining personal hygiene important in crowded urban areas?",
+            options: [
+              "A. To reduce living expenses.",
+              "B. To decrease air pollution.",
+              "C. To prevent the spread of illnesses.",
+              "D. To attract more pests."
+            ],
+            answer: "C. To prevent the spread of illnesses.",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. To prevent the spread of illnesses.",
+              questionContext: "Tại sao việc duy trì vệ sinh cá nhân lại quan trọng ở các khu vực đô thị đông đúc?",
+              passageQuote: "...it's crucial for everyone to focus on hygiene to keep everything clean and avoid sickness spreading.",
+              quoteTranslation: "...mọi người phải chú ý đến vệ sinh để giữ cho mọi thứ sạch sẽ và tránh lây lan bệnh tật (sickness spreading).",
+              synonyms: "avoid sickness spreading = prevent the spread of illnesses",
+              evidenceId: "ev_q33"
+            }
+          },
+          {
+            id: "q34",
+            type: "mcq",
+            question: "Question 34. Which sentence is NOT TRUE according to the passage?",
+            options: [
+              "A. City dwellers never experience discomfort such as itchy eyes.",
+              "B. Air purifiers can provide relief from discomfort due to air pollution.",
+              "C. Many people are drawn to city life despite its challenges.",
+              "D. It's crucial for everyone to focus on hygiene to prevent the spread of sickness."
+            ],
+            answer: "A. City dwellers never experience discomfort such as itchy eyes.",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. City dwellers never experience discomfort such as itchy eyes.",
+              questionContext: "Câu nào sau đây KHÔNG ĐÚNG theo đoạn văn?",
+              passageQuote: "Additionally, city dwellers may experience discomfort such as itchy eyes...",
+              quoteTranslation: "Cư dân thành phố có thể cảm thấy khó chịu như ngứa mắt... Vì vậy câu A nói 'NEVER experience' (không bao giờ bị) là SAI.",
+              synonyms: "may experience >< never experience",
+              evidenceId: "ev_q34"
+            }
+          },
+          {
+            id: "q35",
+            type: "mcq",
+            question: "Question 35. What does the word \"mitigate\" mean in the context of the passage?",
+            options: [
+              "A. increase",
+              "B. extend",
+              "C. improve",
+              "D. reduce"
+            ],
+            answer: "D. reduce",
+            explanationType: "reading",
+            explanation: {
+              answer: "D. reduce",
+              questionContext: "Từ \"mitigate\" (giảm nhẹ, xoa dịu) có nghĩa là gì?",
+              passageQuote: "...take steps to mitigate them for a healthier and happier urban experience.",
+              quoteTranslation: "...thực hiện các bước để giảm nhẹ những nhược điểm đó...",
+              synonyms: "mitigate = reduce (giảm bớt, giảm nhẹ)",
+              evidenceId: "ev_q35"
+            }
+          },
+          {
+            id: "q36",
+            type: "mcq",
+            question: "Question 36. What is the main idea of the passage?",
+            options: [
+              "A. The opportunities and excitement of urban living.",
+              "B. Advantages of living in the city.",
+              "C. The attraction of city life to people.",
+              "D. Challenges and benefits of urban living."
+            ],
+            answer: "D. Challenges and benefits of urban living.",
+            explanationType: "reading",
+            explanation: {
+              answer: "D. Challenges and benefits of urban living.",
+              questionContext: "Ý chính của toàn bộ bài đọc là gì?",
+              passageQuote: "Living in a bustling city offers many advantages, but it also comes with its own set of challenges... Despite these challenges, many people are drawn to city life for its opportunities...",
+              quoteTranslation: "Sống ở thành phố mang lại nhiều lợi ích (benefits) nhưng cũng đi kèm thách thức (challenges)...",
+              synonyms: "advantages & challenges / opportunities = Challenges and benefits of urban living",
+              evidenceId: "ev_q31"
+            }
+          }
+        ]
+      },
+      3: {
+        title: "Part 3: Read the text CONVENIENCE STORES and choose the best option for blanks 37 to 40",
+        paragraphs: [
+          {
+            id: "p3_text",
+            text: "<p class='paragraph-text'>" +
+                  "Convenience stores are small shops that sell a variety of products and are usually open 24/7. People like to go to these stores because they are easy to find and quick to shop at. <span id='ev_q37' class='evidence-target'>(37) ________</span>. They sell snacks, drinks, basic groceries, and sometimes even toiletries. These stores are great for people who need to buy something quickly. <span id='ev_q38' class='evidence-target'>(38) ________</span>. For example, if someone runs out of milk or bread, they can just walk to the nearest convenience store. However, the prices in these stores can be a bit higher than in supermarkets. They are <span id='ev_q39' class='evidence-target'>(39) ________</span>. The convenience factor makes them popular, especially in busy cities. It's important for shoppers to remember that <span id='ev_q40' class='evidence-target'>(40) ________</span>." +
+                  "</p>" +
+                  "<div style='background:#f8fafc; border:2px dashed #ffb6c1; border-radius:12px; padding:12px; margin-top:10px;'>" +
+                  "<strong>Tùy chọn câu/cụm từ điền (A - D):</strong><br>" +
+                  "A. people pay more money because it is easy to get access<br>" +
+                  "B. They offer many essential items<br>" +
+                  "C. Many people use them for quick purchases<br>" +
+                  "D. not always the cheapest option" +
+                  "</div>",
+            translation: "Cửa hàng tiện lợi là những cửa hàng nhỏ bán nhiều loại sản phẩm và thường mở cửa 24/7. Mọi người thích đến những cửa hàng này vì chúng dễ tìm và mua sắm nhanh chóng. Chúng cung cấp nhiều mặt hàng thiết yếu. Họ bán đồ ăn vặt, đồ uống, nhu yếu phẩm cơ bản và đôi khi cả đồ dùng cá nhân. Những cửa hàng này rất tuyệt vời cho những người cần mua thứ gì đó nhanh chóng. Nhiều người sử dụng chúng để mua sắm nhanh. Ví dụ: nếu ai đó hết sữa hoặc bánh mì, họ chỉ cần đi bộ đến cửa hàng tiện lợi gần nhất. Tuy nhiên, giá cả ở những cửa hàng này có thể cao hơn một chút so với ở siêu thị. Chúng không phải lúc nào cũng là lựa chọn rẻ nhất. Yếu tố tiện lợi khiến chúng trở nên phổ biến, đặc biệt là ở các thành phố bận rộn. Điều quan trọng là người mua hàng phải nhớ rằng mọi người phải trả nhiều tiền hơn vì dễ tiếp cận hơn."
+          }
+        ],
+        glossary: [
+          { word: "Toiletries (n)", type: "Noun", meaning: "Đồ dùng vệ sinh cá nhân", synonym: "Personal care items" },
+          { word: "Groceries (n)", type: "Noun", meaning: "Nhu yếu phẩm / Thực phẩm", synonym: "Foodstuffs / Provisions" },
+          { word: "Run out of (phr v)", type: "Verb", meaning: "Hết / Cạn kiệt", synonym: "Exhaust / Deplete" },
+          { word: "Essential (adj)", type: "Adj", meaning: "Thiết yếu / Quan trọng", synonym: "Necessary / Vital / Crucial" }
+        ],
+        questions: [
+          {
+            id: "q37",
+            type: "mcq",
+            question: "Question 37. Choose the correct option for blank (37):",
+            options: [
+              "A. people pay more money because it is easy to get access",
+              "B. They offer many essential items",
+              "C. Many people use them for quick purchases",
+              "D. not always the cheapest option"
+            ],
+            answer: "B. They offer many essential items",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. They offer many essential items",
+              questionContext: "Câu giới thiệu tổng quan các mặt hàng bán tại cửa hàng tiện lợi trước câu liệt kê 'They sell snacks, drinks, basic groceries...'.",
+              passageQuote: "People like to go to these stores because they are easy to find and quick to shop at. (37) They offer many essential items. They sell snacks, drinks, basic groceries...",
+              quoteTranslation: "Chúng cung cấp nhiều mặt hàng thiết yếu. Họ bán đồ ăn vặt, nước uống, nhu yếu phẩm...",
+              synonyms: "essential items -> snacks, drinks, basic groceries",
+              evidenceId: "ev_q37"
+            }
+          },
+          {
+            id: "q38",
+            type: "mcq",
+            question: "Question 38. Choose the correct option for blank (38):",
+            options: [
+              "A. people pay more money because it is easy to get access",
+              "B. They offer many essential items",
+              "C. Many people use them for quick purchases",
+              "D. not always the cheapest option"
+            ],
+            answer: "C. Many people use them for quick purchases",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. Many people use them for quick purchases",
+              questionContext: "Câu bổ sung cho ý 'buy something quickly' và đứng trước ví dụ 'For example, if someone runs out of milk or bread...'.",
+              passageQuote: "These stores are great for people who need to buy something quickly. (38) Many people use them for quick purchases. For example, if someone runs out of milk...",
+              quoteTranslation: "Những cửa hàng này rất tuyệt cho ai cần mua nhanh. Nhiều người dùng chúng cho các giao dịch mua sắm nhanh chóng.",
+              synonyms: "buy something quickly -> quick purchases",
+              evidenceId: "ev_q38"
+            }
+          },
+          {
+            id: "q39",
+            type: "mcq",
+            question: "Question 39. Choose the correct option for blank (39):",
+            options: [
+              "A. people pay more money because it is easy to get access",
+              "B. They offer many essential items",
+              "C. Many people use them for quick purchases",
+              "D. not always the cheapest option"
+            ],
+            answer: "D. not always the cheapest option",
+            explanationType: "reading",
+            explanation: {
+              answer: "D. not always the cheapest option",
+              questionContext: "Bổ sung vị ngữ sau 'They are...' giải thích cho việc giá cao hơn siêu thị.",
+              passageQuote: "However, the prices in these stores can be a bit higher than in supermarkets. They are (39) not always the cheapest option.",
+              quoteTranslation: "Tuy nhiên giá ở đây cao hơn siêu thị một chút. Chúng không phải lúc nào cũng là lựa chọn rẻ nhất.",
+              synonyms: "prices higher than supermarkets -> not always the cheapest option",
+              evidenceId: "ev_q39"
+            }
+          },
+          {
+            id: "q40",
+            type: "mcq",
+            question: "Question 40. Choose the correct option for blank (40):",
+            options: [
+              "A. people pay more money because it is easy to get access",
+              "B. They offer many essential items",
+              "C. Many people use them for quick purchases",
+              "D. not always the cheapest option"
+            ],
+            answer: "A. people pay more money because it is easy to get access",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. people pay more money because it is easy to get access",
+              questionContext: "Mệnh đề kết luận đứng sau 'It's important for shoppers to remember that...'.",
+              passageQuote: "The convenience factor makes them popular, especially in busy cities. It's important for shoppers to remember that (40) people pay more money because it is easy to get access.",
+              quoteTranslation: "Người mua hàng cần nhớ rằng mọi người đang phải trả nhiều tiền hơn chỉ vì nó dễ tiếp cận hơn.",
+              synonyms: "convenience factor / higher prices -> pay more money because easy access",
+              evidenceId: "ev_q40"
+            }
+          }
+        ]
+      }
+    };
+
+    let currentPassageId = 1;
+    let userAnswers = {};
+    let timerSeconds = 1200;
+    let timerInterval = null;
+    let isTimerRunning = false;
+    let isTestLocked = false;
+
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playCorrectSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.3);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.3);
+    }
+
+    function playWrongSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+      osc.frequency.linearRampToValueAtTime(110, audioCtx.currentTime + 0.35);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.35);
+    }
+
+    function triggerConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      let particles = [];
+      const colors = ['#ff6b8b', '#00d26a', '#fdcb6e', '#00c9a7', '#a855f7', '#ff4757'];
+      
+      for (let i = 0; i < 50; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          tilt: Math.floor(Math.random() * 10) - 10,
+          tiltAngleIncremental: Math.random() * 0.07 + 0.05,
+          tiltAngle: 0
+        });
+      }
+
+      let step = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          ctx.beginPath();
+          ctx.lineWidth = p.r;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+          ctx.stroke();
+        });
+        update();
+        step++;
+        if (step < 90) requestAnimationFrame(draw);
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function update() {
+        particles.forEach((p) => {
+          p.tiltAngle += p.tiltAngleIncremental;
+          p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+          p.tilt = Math.sin(p.tiltAngle) * 15;
+        });
+      }
+      draw();
+    }
+
+    function shuffleArray(array) {
+      let arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('timer-toggle-btn');
+      if (isTimerRunning) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        btn.innerText = "▶️ TIẾP TỤC TÍNH GIỜ";
+      } else {
+        isTimerRunning = true;
+        btn.innerText = "⏸️ TẠM DỪNG TÍNH GIỜ";
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            isTestLocked = true;
+            alert("⏰ Đã hết giờ làm bài, vui lòng nộp bài nhé!");
+            disableAllInputs();
+          }
+        }, 1000);
+      }
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(timerSeconds / 60);
+      const secs = timerSeconds % 60;
+      document.getElementById('timer-display').innerText = 
+        `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function disableAllInputs() {
+      document.querySelectorAll('button, select, input').forEach(el => {
+        if (!el.classList.contains('btn-submit-main') && el.id !== 'timer-toggle-btn') {
+          el.disabled = true;
+        }
+      });
+    }
+
+    function renderLeftPane(passageId) {
+      const pData = passagesData[passageId];
+      const readingPane = document.getElementById('reading-pane');
+      let html = `<div class="passage-title">${pData.title}</div>`;
+
+      pData.paragraphs.forEach((p) => {
+        html += `
+          <div class="paragraph-block">
+            <div class="paragraph-text">${p.text}</div>
+            <button class="translate-btn" onclick="toggleTranslation('${p.id}')">🌟 BẢN DỊCH ĐẦY ĐỦ</button>
+            <div class="translation-content" id="trans-${p.id}">${p.translation}</div>
+          </div>
+        `;
+      });
+
+      if (pData.glossary && pData.glossary.length > 0) {
+        html += `
+          <div class="glossary-box">
+            <div class="glossary-title">📚 Bảng Từ Vựng Academic (B2-C2) & Từ Đồng Nghĩa</div>
+            <table class="glossary-table">
+              <thead>
+                <tr>
+                  <th>Từ vựng</th>
+                  <th>Loại từ</th>
+                  <th>Nghĩa tiếng Việt</th>
+                  <th>Từ đồng nghĩa</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+        pData.glossary.forEach(g => {
+          html += `
+            <tr>
+              <td><strong>${g.word}</strong></td>
+              <td><em>${g.type}</em></td>
+              <td>${g.meaning}</td>
+              <td><code>${g.synonym}</code></td>
+            </tr>
+          `;
+        });
+        html += `</tbody></table></div>`;
+      }
+
+      readingPane.innerHTML = html;
+    }
+
+    function renderRightPane(passageId) {
+      const pData = passagesData[passageId];
+      const exercisePane = document.getElementById('exercise-pane');
+      let html = "";
+
+      pData.questions.forEach((q, idx) => {
+        html += `<div class="question-card" id="card-${q.id}">`;
+        html += `<span class="question-number">Câu ${idx + 1}</span>`;
+
+        html += `<div class="question-text">${q.question}</div>`;
+
+        if (q.type === 'mcq') {
+          const shuffledOpts = shuffleArray(q.options);
+          html += `<div class="options-grid">`;
+          shuffledOpts.forEach((opt) => {
+            html += `
+              <button class="option-btn" id="opt-${q.id}-${cleanStr(opt)}" onclick="checkMCQ('${q.id}', '${escapeQuotes(opt)}')">
+                <span>${opt}</span>
+              </button>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        html += `<div class="explanation-box" id="exp-${q.id}">`;
+        if (q.explanationType === 'vocab_grammar') {
+          html += `
+            <div class="exp-item"><span class="exp-title">1. Dịch câu hỏi / biển báo:</span> ${q.explanation.translation}</div>
+            <div class="exp-item"><span class="exp-title">2. Phân tích các đáp án:</span>
+              <ul style="margin-left:20px; margin-top:4px; list-style-type:circle;">
+                ${q.explanation.optionsAnalysis.map(optStr => `<li>${optStr}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="exp-item" style="margin-top:6px;"><span class="exp-title">3. Tại sao chọn đáp án đúng?</span> ${q.explanation.whyCorrect}</div>
+            <div class="exp-item"><span class="exp-title">4. Tại sao các đáp án còn lại SAI?</span> ${q.explanation.whyWrong}</div>
+            ${q.explanation.evidenceId ? `<button class="locate-btn" onclick="locateEvidence('${q.explanation.evidenceId}')">📍 Vị trí dẫn chứng trong bài</button>` : ''}
+          `;
+        } else if (q.explanationType === 'reading') {
+          html += `
+            <div class="exp-item"><span class="exp-title">(1) ĐÁP ÁN:</span> <strong style="color: var(--accent-green);">${q.explanation.answer}</strong></div>
+            <div class="exp-item"><span class="exp-title">(2) ĐOẠN CHỨA ĐÁP ÁN:</span> "${q.explanation.passageQuote}"</div>
+            <div class="exp-item"><span class="exp-title">(3) DỊCH NGHĨA:</span> ${q.explanation.quoteTranslation}</div>
+            <div class="exp-item"><span class="exp-title">(4) TỪ ĐỒNG NGHĨA / PHÂN TÍCH:</span> <code>${q.explanation.synonyms}</code></div>
+            <button class="locate-btn" onclick="locateEvidence('${q.explanation.evidenceId}')">📍 Vị trí dẫn chứng trong bài</button>
+          `;
+        }
+        html += `</div></div>`;
+      });
+
+      exercisePane.innerHTML = html;
+    }
+
+    function checkMCQ(qId, selectedOpt) {
+      if (isTestLocked) return;
+      const q = findQuestion(qId);
+      const isCorrect = selectedOpt === q.answer;
+      userAnswers[qId] = isCorrect;
+
+      q.options.forEach(opt => {
+        const btn = document.getElementById(`opt-${qId}-${cleanStr(opt)}`);
+        if (btn) {
+          btn.disabled = true;
+          if (opt === q.answer) {
+            btn.classList.add('correct');
+          } else if (opt === selectedOpt) {
+            btn.classList.add('wrong');
+          }
+        }
+      });
+
+      handleAnswerResult(qId, isCorrect);
+    }
+
+    function handleAnswerResult(qId, isCorrect) {
+      const expBox = document.getElementById(`exp-${qId}`);
+      if (expBox) expBox.classList.add('show');
+
+      if (isCorrect) {
+        playCorrectSound();
+        triggerConfetti();
+      } else {
+        playWrongSound();
+      }
+
+      updateProgressBar();
+    }
+
+    function locateEvidence(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.add('evidence-highlight');
+      setTimeout(() => {
+        el.classList.remove('evidence-highlight');
+      }, 3500);
+    }
+
+    function toggleTranslation(pId) {
+      const el = document.getElementById(`trans-${pId}`);
+      if (el) el.classList.toggle('show');
+    }
+
+    function switchPassage(pNum) {
+      currentPassageId = pNum;
+      document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', (idx + 1) === pNum);
+      });
+      renderLeftPane(pNum);
+      renderRightPane(pNum);
+      updateProgressBar();
+    }
+
+    function updateProgressBar() {
+      let totalQuestions = 0;
+      Object.keys(passagesData).forEach(pKey => {
+        totalQuestions += passagesData[pKey].questions.length;
+      });
+
+      const answeredCount = Object.keys(userAnswers).length;
+      const percentage = Math.round((answeredCount / totalQuestions) * 100);
+
+      document.getElementById('progress-fill').style.width = `${percentage}%`;
+      document.getElementById('progress-text').innerText = `${percentage}%`;
+    }
+
+    function submitTest() {
+      let totalQuestions = 0;
+      let correctCount = 0;
+
+      Object.keys(passagesData).forEach(pKey => {
+        passagesData[pKey].questions.forEach(q => {
+          totalQuestions++;
+          if (userAnswers[q.id] === true) {
+            correctCount++;
+          }
+        });
+      });
+
+      const scoreText = `${correctCount} / ${totalQuestions}`;
+      document.getElementById('score-text').innerText = scoreText;
+
+      let comment = "Cố lên nhé! Hãy đọc lại các phần giải thích chi tiết để nắm chắc kiến thức!";
+      const ratio = correctCount / totalQuestions;
+      if (ratio === 1) {
+        comment = "🌟 THIÊN TÀI! Bạn xuất sắc đạt 100% điểm số!";
+      } else if (ratio >= 0.7) {
+        comment = "🎉 LÀM TỐT LẮM! Kỹ năng làm bài của bạn rất ấn tượng!";
+      }
+
+      document.getElementById('comment-text').innerText = comment;
+      document.getElementById('result-modal').classList.add('show');
+      triggerConfetti();
+    }
+
+    function closeModal() {
+      document.getElementById('result-modal').classList.remove('show');
+    }
+
+    function findQuestion(qId) {
+      for (let pKey in passagesData) {
+        const found = passagesData[pKey].questions.find(q => q.id === qId);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    function cleanStr(str) {
+      return str.replace(/[^a-zA-Z0-9]/g, '');
+    }
+
+    function escapeQuotes(str) {
+      return str.replace(/'/g, "\\'");
+    }
+
+    window.onload = () => {
+      renderLeftPane(1);
+      renderRightPane(1);
+      updateProgressBar();
+    };
+  </script>
+</body>
+</html>
